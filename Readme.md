@@ -1,3 +1,4 @@
+
 #EpicEats
 Welcome to the EpicEats repository! This project is a web application developed using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The application allows users to browse a variety of food items, place orders, and have them delivered to their desired location.
 
