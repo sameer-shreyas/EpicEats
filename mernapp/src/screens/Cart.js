@@ -1,8 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 export default function Cart() {
+  const [couponCode, setCouponCode] = useState("");
+  const [discount, setDiscount] = useState(0);
+
   let data = useCart();
   let dispatch = useDispatchCart();
   if (data.length === 0) {
@@ -12,6 +15,15 @@ export default function Cart() {
       </div>
     )
   }
+  const applyCoupon = () => {
+    if (couponCode === "RANDOMCOUPON") {
+      const couponDiscount = Math.floor(totalPrice * 0.2); // 20% discount
+      setDiscount(couponDiscount);
+    } else {
+      setDiscount(0);
+      alert("Invalid coupon code");
+    }
+  };
   // const handleRemove = (index)=>{
   //   console.log(index)
   //   dispatch({type:"REMOVE",index:index})
@@ -39,7 +51,8 @@ export default function Cart() {
     }
   }
 
-  let totalPrice = data.reduce((total, food) => total + food.price, 0)
+  let totalPrice = data.reduce((total, food) => total + food.price, 0);
+  totalPrice -= discount;
   return (
     <div>
 
@@ -68,6 +81,23 @@ export default function Cart() {
             ))}
           </tbody>
         </table>
+        <div>
+          <label htmlFor="couponCode" className="form-label text-light">Coupon Code</label>
+          <input
+            type="text"
+            className="form-control"
+            id="couponCode"
+            value={couponCode}
+            onChange={(e) => setCouponCode(e.target.value)}
+          />
+        </div>
+        <div>
+          <button className="btn bg-primary text-light mt-3" onClick={applyCoupon}>
+            Apply Coupon
+          </button>
+        </div>
+
+
         <div><h1 className='fs-2 text-light'>Total Price: {totalPrice}/-</h1></div>
         <div>
           <button className='btn bg-success mt-5 text-light' onClick={handleCheckOut} > Check Out </button>
