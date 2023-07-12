@@ -2,6 +2,9 @@ import React,{useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar';
 export default function Signup() {
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [showPassword, setShowPassword] = useState(false);
 
   let nevigate = useNavigate();
@@ -11,6 +14,10 @@ export default function Signup() {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+      if (credentials.password !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+      }
     const response = await fetch("http://localhost:5000/api/createuser", {
       
       method: 'POST',
@@ -73,6 +80,27 @@ export default function Signup() {
               </div>
             </div>
             <div className="m-3">
+              <label htmlFor="confirmPassword" className="form-label text-light">Confirm Password</label>
+              <div className="input-group">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  className="form-control"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? "Hide" : "Show"} Confirm Password
+                </button>
+              </div>
+            </div>
+
+            <div className="m-3">
                 <label htmlFor="exampleInputPassword1" className="form-label text-light">Address</label>
                 <input type="text" className="form-control" id="exampleInputPassword1" name='location' value={credentials.location} onChange={onChange}/>
             </div>
@@ -83,3 +111,4 @@ export default function Signup() {
     </div>
   )
 }
+
