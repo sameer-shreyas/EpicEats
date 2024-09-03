@@ -53,7 +53,7 @@ export default function Home() {
           </div>
           <div className="carousel-item active">
             <img
-              src="https://source.unsplash.com/random/300×300?burger"
+              src="https://www.foodandwine.com/thmb/DI29Houjc_ccAtFKly0BbVsusHc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg"
               className="d-block w-100"
               alt="..."
               style={{filter : "brightness(30%)"}}
@@ -61,7 +61,7 @@ export default function Home() {
           </div>
           <div className="carousel-item">
             <img
-              src="https://source.unsplash.com/random/300×300?pizza"
+              src="https://www.simplyrecipes.com/thmb/KE6iMblr3R2Db6oE8HdyVsFSj2A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-1024x682-583b275444104ef189d693a64df625da.jpg"
               className="d-block w-100"
               alt="..."
               style={{filter : "brightness(30%)"}}
@@ -69,7 +69,7 @@ export default function Home() {
           </div>
           <div className="carousel-item">
             <img
-              src="https://source.unsplash.com/random/300×300?pastry"
+              src="https://www.thespruceeats.com/thmb/UnVh_-znw7ikMUciZIx5sNqBtTU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/steamed-momos-wontons-1957616-hero-01-1c59e22bad0347daa8f0dfe12894bc3c.jpg"
               className="d-block w-100"
               alt="..."
               style={{filter : "brightness(30%)"}}
